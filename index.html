@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Розклад уроків</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <input id="title" aria-label="Назва розкладу" value="Розклад уроків" maxlength="60">
+  <div class="bar">
+    <select id="who" aria-label="Мій профіль"></select>
+    <button id="stats">Моя статистика</button>
+    <button id="share" class="primary">Скопіювати посилання</button>
+  </div>
+</header>
+<main id="week" aria-live="polite"><p>Завантаження…</p></main>
+
+<dialog id="lessonDlg">
+  <form id="lessonForm">
+    <h3 id="lessonHead">Новий урок</h3>
+    <label>Назва<input id="l-title" required maxlength="80" placeholder="Англійська, граматика"></label>
+    <div class="row2">
+      <label>День<select id="l-day"></select></label>
+      <label>Початок<input id="l-start" type="time" required></label>
+    </div>
+    <div class="row2">
+      <label>Тривалість, хв<input id="l-dur" type="number" min="5" step="5" required></label>
+      <label>Завершення<input id="l-end" type="time" required></label>
+    </div>
+    <div class="row2">
+      <label>Вчитель<select id="l-teacher"></select></label>
+      <label>Учень<select id="l-student"></select></label>
+    </div>
+    <label>Примітка або посилання<textarea id="l-note" rows="3" placeholder="https://meet.google.com/…"></textarea></label>
+    <div class="actions">
+      <button type="button" id="l-del" class="danger">Видалити</button>
+      <button type="button" id="l-cancel">Скасувати</button>
+      <button class="primary">Зберегти</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="profileDlg">
+  <form id="profileForm">
+    <h3>Новий профіль</h3>
+    <label>Ім'я<input id="p-name" required maxlength="40"></label>
+    <div class="roles">
+      <label><input type="radio" name="role" value="student" checked>Учень</label>
+      <label><input type="radio" name="role" value="teacher">Вчитель</label>
+    </div>
+    <div class="actions">
+      <button type="button" id="p-cancel">Скасувати</button>
+      <button class="primary">Створити</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="statsDlg">
+  <div id="statsBody"></div>
+  <div class="actions"><button type="button" id="s-close">Закрити</button></div>
+</dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
